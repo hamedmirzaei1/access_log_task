@@ -19,7 +19,7 @@ public class Calculator {
     public static void showHistogram(Report report) {
         LinkedList<Integer> timeLog = report.getTimeLog();
         int scale = report.getRequestNumbers() / 1000;
-
+        if(scale==0) return;
         System.out.println();
         for(int i=0 ; i<24; i++) {
             System.out.print("\n" + i + " | ");
