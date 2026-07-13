@@ -11,6 +11,26 @@ public class Main {
         FileParser fileParser = new FileParser();
         fileParser.parseFile(path, report);
 
+        boolean running = true;
+        while(running) {
+            System.out.print("\n\n| options |\n\nbase_report\nhistogram\nexit\n\n>> ");
+            String command = sc.nextLine();
+            switch(command) {
+                case "base_report":
+                    showBaseReport(report);
+                    break;
+                case "histogram":
+                    Calculator.showHistogram(report);
+                    break;
+                case "exit":
+                    running = false;
+            }
+        }
+
+
+    }
+
+    private static void showBaseReport(Report report) {
         System.out.println("\n| Number of Requests |\n");
         System.out.println(report.getRequestNumbers());
 
@@ -27,7 +47,5 @@ public class Main {
         System.out.print("5xx: ");
         System.out.printf("%.4f", report.get5xxErrorsPercentage());
         System.out.print("%");
-
-        Calculator.showHistogram(report);
     }
 }
