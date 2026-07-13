@@ -27,5 +27,7 @@ public class Main {
         System.out.print("5xx: ");
         System.out.printf("%.4f", report.get5xxErrorsPercentage());
         System.out.print("%");
+
+        Calculator.showHistogram(report);
     }
 }

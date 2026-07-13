@@ -71,4 +71,8 @@ public class Report {
     public float get5xxErrorsPercentage() {
         return ((float)errors5xx/requestNumbers) * 100;
     }
+
+    public LinkedList<Integer> getTimeLog() {
+        return timeLog;
+    }
 }
