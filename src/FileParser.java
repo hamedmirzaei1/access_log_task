@@ -21,6 +21,10 @@ public class FileParser {
                 Matcher matcher = LOG_PATTERN.matcher(line);
                 if(matcher.matches()) {
                     report.addRequest();
+                    report.addIP(matcher.group(1));
+                    Parser.parseTime(matcher.group(2), report);
+                    Parser.parseEndpoint(matcher.group(3), report);
+                    Parser.parseStatus(matcher.group(4), report);
                 } else {
                     report.addFailed();
                 }
