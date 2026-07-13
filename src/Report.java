@@ -51,4 +51,24 @@ public class Report {
     public void addRequestToTime(int i) {
         timeLog.set(i, timeLog.get(i) + 1);
     }
+
+    public Map<String, Integer> getEndPoints() {
+        return endPoints;
+    }
+
+
+    public int getRequestNumbers() {
+        return requestNumbers;
+    }
+
+    public int getUniqueIPs() {
+        return ipSet.size();
+    }
+
+    public float get4xxErrorsPercentage() {
+        return ((float) errors4xx/requestNumbers) * 100;
+    }
+    public float get5xxErrorsPercentage() {
+        return ((float)errors5xx/requestNumbers) * 100;
+    }
 }

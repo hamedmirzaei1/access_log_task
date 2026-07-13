@@ -10,8 +10,7 @@ public class FileParser {
             "^(\\S+) \\S+ \\S+ \\[(.*?)] \"(.*?)\" (\\d{3}) (\\S+) \"(.*?)\"$"
     );
 
-    public void parseFile(String FILE_PATH) {
-        Report report = new Report();
+    public void parseFile(String FILE_PATH, Report report) {
 
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
             String line;
