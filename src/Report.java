@@ -1,5 +1,4 @@
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Report {
     private int failedLines = 0;
@@ -8,7 +7,15 @@ public class Report {
     private int errors5xx = 0;
 
     private Set<String> ipSet = new HashSet<>();
+    private Map<String, Integer> endPoints = new HashMap();
 
+    private LinkedList<Integer> timeLog = new LinkedList<>();
+
+    public Report() {
+        for(int i=0; i<24; i++) {
+            timeLog.add(0);
+        }
+    }
 
     public void addFailed() {
         failedLines++;
@@ -17,6 +24,15 @@ public class Report {
     public void addIP(String ip) {
         if(!ipSet.contains(ip)) {
             ipSet.add(ip);
+        }
+    }
+
+    public void addEndpoint(String endPoint) {
+        if(endPoints.keySet().contains(endPoint)) {
+            endPoints.put(endPoint, endPoints.get(endPoint) + 1);
+        }
+        else {
+            endPoints.put(endPoint, 1);
         }
     }
 
@@ -30,5 +46,9 @@ public class Report {
 
     public void addRequest() {
         requestNumbers++;
+    }
+
+    public void addRequestToTime(int i) {
+        timeLog.set(i, timeLog.get(i) + 1);
     }
 }
